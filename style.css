@@ -99,3 +99,13 @@ li {
 .dark .subtitle {
   color: #aaa;
 }
+.summary {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.dark .summary {
+  border-color: #444;
+}

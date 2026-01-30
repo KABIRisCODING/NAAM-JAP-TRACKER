@@ -15,6 +15,28 @@ function renderLogs() {
     logList.appendChild(li);
   });
 }
+function updateMonthlySummary() {
+  const logs = JSON.parse(localStorage.getItem("sadhanaLogs")) || [];
+  const now = new Date();
+  const month = now.getMonth();
+  const year = now.getFullYear();
+
+  let totalJap = 0;
+  let totalMeditation = 0;
+
+  logs.forEach(log => {
+    const d = new Date(log.date);
+    if (d.getMonth() === month && d.getFullYear() === year) {
+      totalJap += Number(log.jap);
+      totalMeditation += Number(log.meditation);
+    }
+  });
+
+  document.getElementById("totalJap").innerText =
+    `Total Jap: ${totalJap}`;
+  document.getElementById("totalMeditation").innerText =
+    `Total Meditation: ${totalMeditation} min`;
+}
 
 form.addEventListener("submit", function(e) {
   e.preventDefault();
@@ -35,6 +57,7 @@ form.addEventListener("submit", function(e) {
   form.reset();
   renderLogs();
 });
+updateMonthlySummary();
 
 renderLogs();
 const toggleBtn = document.getElementById("themeToggle");
@@ -55,3 +78,8 @@ toggleBtn.addEventListener("click", () => {
     toggleBtn.innerText = "🌙 Dark Mode";
   }
 });
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js");
+}
+renderLogs();
+updateMonthlySummary();
