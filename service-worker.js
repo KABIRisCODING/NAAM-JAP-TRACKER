@@ -1,4 +1,4 @@
-const CACHE = "sadhana-v1";
+const CACHE = "sadhana-v2";
 const ASSETS = [
   "./",
   "./index.html",

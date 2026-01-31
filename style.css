@@ -109,3 +109,20 @@ li {
 .dark .summary {
   border-color: #444;
 }
+.byline {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  font-family: "Georgia", serif;
+  color: #9a9a9a;
+  letter-spacing: 0.5px;
+}
+.dark .byline {
+  color: #b5b5b5;
+}
+.byline {
+  font-size: 0.8rem;
+  font-style: italic;
+  opacity: 0.6;
+  margin-top: -6px;
+  margin-bottom: 14px;
+}
