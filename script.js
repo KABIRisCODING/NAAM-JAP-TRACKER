@@ -25,7 +25,10 @@ function updateMonthlySummary() {
   let totalMeditation = 0;
 
   logs.forEach(log => {
-    const d = new Date(log.date);
+   const today = new Date().toISOString();
+
+
+
     if (d.getMonth() === month && d.getFullYear() === year) {
       totalJap += Number(log.jap);
       totalMeditation += Number(log.meditation);
@@ -41,7 +44,9 @@ function updateMonthlySummary() {
 form.addEventListener("submit", function(e) {
   e.preventDefault();
 
-  const today = new Date().toLocaleDateString();
+  <strong>${new Date(log.date).toLocaleDateString()}</strong>
+
+
   const jap = document.getElementById("japCount").value;
   const meditation = document.getElementById("meditationTime").value;
   const reflection = document.getElementById("reflection").value;
